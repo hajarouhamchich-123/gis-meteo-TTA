@@ -28,7 +28,8 @@ with st.sidebar:
     st.markdown("---")
 
     liste_regions = sorted(regions["libelle_fr"].unique())
-    region_choisie = st.selectbox("🌍 Région :", liste_regions, key="sel_region")
+    index_TTA = liste_regions.index("Tanger-Tétouan-Al Hoceima")
+    region_choisie = st.selectbox("🌍 Région :", liste_regions, index=index_TTA, key="sel_region")
 
     provinces_filtrees = provinces[provinces["code_reg"] == regions[regions["libelle_fr"] == region_choisie]["code_reg"].values[0]]
     liste_provinces = sorted(provinces_filtrees["libelle_fr"].unique())
@@ -68,7 +69,7 @@ centre = entite.geometry.centroid.iloc[0]
 st.title(f"🗺️ {nom_entite}")
 st.markdown("---")
 
-# --- CARTE (pleine largeur) ---
+# --- CARTE ---
 st.subheader("🗺️ Carte interactive")
 
 carte = folium.Map(location=[centre.y, centre.x], zoom_start=zoom)
@@ -97,7 +98,7 @@ st_folium(carte, width=1100, height=500, key="carte_folium")
 
 st.markdown("---")
 
-# --- MÉTÉO (en dessous) ---
+# --- MÉTÉO ---
 st.subheader("🌡️ Prévisions météo - 15 jours")
 
 url = (
