@@ -28,4 +28,4 @@ Tanger-Tétouan-Al Hoceïma et ses unités territoriales.
 streamlit run app.py
 
 ## Lien application déployée
-(à compléter après déploiement sur Streamlit Cloud)
+https://gis-meteo-tta-lhjvheobdkpbxuf9wmb5lf.streamlit.app/
